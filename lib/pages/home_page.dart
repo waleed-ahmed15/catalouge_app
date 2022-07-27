@@ -13,7 +13,7 @@ class Home_page extends StatelessWidget {
       )),
       drawer: Drawer(
           child: Column(
-        children: [Icon(Icons.home)],
+        children:const  [Icon(Icons.home)],
       )),
     );
   }
