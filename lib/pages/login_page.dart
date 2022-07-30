@@ -12,7 +12,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   bool _buttonchange = false;
   final _formKey = GlobalKey<FormState>();
-
   moveToHome(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
       setState(() {

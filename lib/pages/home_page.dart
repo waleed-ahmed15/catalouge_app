@@ -1,3 +1,4 @@
+import 'package:catalouge_app/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class Home_page extends StatelessWidget {
@@ -6,15 +7,12 @@ class Home_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("my app")),
+      appBar: AppBar(title: Text("Catalouge App")),
       body: Container(
           child: Center(
         child: Text("welcome"),
       )),
-      drawer: Drawer(
-          child: Column(
-        children:const  [Icon(Icons.home)],
-      )),
+      drawer: MyDrawer(),
     );
   }
 }
