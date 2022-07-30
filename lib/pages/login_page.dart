@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                   child: Center(
                 child: Image(
-                  image: AssetImage('images/login_image.jpg'),
+                  image: AssetImage('assets/files/login_image.jpg'),
                   fit: BoxFit.cover,
                 ),
               )),
