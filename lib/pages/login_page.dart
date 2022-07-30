@@ -2,8 +2,15 @@ import 'package:catalouge_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool _buttonchange = false;
 
   @override
   Widget build(BuildContext context) {
@@ -58,19 +65,48 @@ class LoginPage extends StatelessWidget {
                   SizedBox(
                     height: 40,
                   ),
-                  ElevatedButton(
-                      style: ButtonStyle(
-                          minimumSize: MaterialStateProperty.all(Size(150, 40)),
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.white),
-                          foregroundColor:
-                              MaterialStateProperty.all(Colors.red)),
-                      onPressed: () {
-                        Navigator.pushNamed(context, MyRoutes.homeRoute);
-                      },
-                      child: Text(
-                        "L O G I N",
-                      ))
+                  InkWell(
+                    onTap: () async {
+                      setState(() {
+                        _buttonchange = true;
+                      });
+                      await Future.delayed(Duration(seconds: 1));
+                      Navigator.pushNamed(context, MyRoutes.homeRoute);
+                    },
+                    child: AnimatedContainer(
+                      alignment: Alignment.center,
+                      width: _buttonchange ? 50 : 150,
+                      height: 40,
+                      duration: Duration(seconds: 1),
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              BorderRadius.circular(_buttonchange ? 50 : 8),
+                          color: Colors.red),
+                      child: _buttonchange
+                          ? Icon(
+                              Icons.done,
+                              color: Colors.white,
+                            )
+                          : Text(
+                              "L O G I N",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 18),
+                            ),
+                    ),
+                  ),
+                  // ElevatedButton(
+                  //     style: ButtonStyle(
+                  //         minimumSize: MaterialStateProperty.all(Size(150, 40)),
+                  //         backgroundColor:
+                  //             MaterialStateProperty.all(Colors.white),
+                  //         foregroundColor:
+                  //             MaterialStateProperty.all(Colors.red)),
+                  //     onPressed: () {
+                  //       Navigator.pushNamed(context, MyRoutes.homeRoute);
+                  //     },
+                  //     child: Text(
+                  //       "L O G I N",
+                  //     ))
                 ],
               ),
             ),
