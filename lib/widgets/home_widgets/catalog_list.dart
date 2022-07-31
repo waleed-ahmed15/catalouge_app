@@ -58,7 +58,7 @@ class CatalogItem extends StatelessWidget {
                     style: ButtonStyle(
                         shape: MaterialStateProperty.all(StadiumBorder())),
                     onPressed: () {},
-                    child: "BUY".text.make(),
+                    child: "add to cart".text.make(),
                   ).p8()
                 ],
               )

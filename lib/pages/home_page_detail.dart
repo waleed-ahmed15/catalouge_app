@@ -10,7 +10,9 @@ class HomePageDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       body: SafeArea(
         bottom: false,
         child: Padding(
@@ -20,7 +22,7 @@ class HomePageDetail extends StatelessWidget {
               Hero(
                   tag: catalog.id.toString(),
                   child: Image.network(catalog.image)
-                      .h40(context)
+                      .h20(context)
                       .centered()
                       .p16()),
               Expanded(
@@ -40,6 +42,13 @@ class HomePageDetail extends StatelessWidget {
                       catalog.desc.text.xl
                           .textStyle(context.captionStyle)
                           .make(),
+                      10.heightBox,
+                      "Voluptua labore et ut diam et dolores lorem eirmod sanctus, voluptua sed tempor lorem at dolor ut sit eos, eos et magna eos duo, ipsum duo diam accusam aliquyam lorem amet gubergren at takimata, sea et voluptua sit duo eos dolor amet consetetur, sea sit labore dolor ipsum sed. Sit."
+                          .text
+                          .align(TextAlign.justify)
+                          .textStyle(context.captionStyle)
+                          .make()
+                          .p16()
                     ]),
                   ),
                 ),
@@ -63,11 +72,10 @@ class HomePageDetail extends StatelessWidget {
                     MaterialStateProperty.all(Colors.blueGrey[900]),
                 shape: MaterialStateProperty.all(StadiumBorder())),
             onPressed: () {},
-            child: "BUY".text.make(),
-          ).p8().wh(100, 50)
+            child: "add to cart".text.make(),
+          ).p8().wh(120, 50),
         ],
       ).px16(),
     );
   }
 }
-  

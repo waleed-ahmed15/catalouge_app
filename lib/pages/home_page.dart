@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:catalouge_app/models/calatoge.dart';
+import 'package:catalouge_app/utils/routes.dart';
 import 'package:catalouge_app/widgets/drawer.dart';
 import 'package:catalouge_app/widgets/item_widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -40,6 +42,11 @@ class _Home_pageState extends State<Home_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.pushNamed(context, MyRoutes.cartRoute);
+          },
+          child: Icon(CupertinoIcons.cart_fill_badge_plus)),
       body: SafeArea(
           child: Container(
         padding: Vx.m32,
