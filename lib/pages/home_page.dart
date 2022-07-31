@@ -1,10 +1,13 @@
 import 'dart:convert';
-
 import 'package:catalouge_app/models/calatoge.dart';
 import 'package:catalouge_app/widgets/drawer.dart';
 import 'package:catalouge_app/widgets/item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:velocity_x/velocity_x.dart';
+
+import '../widgets/home_widgets/catalog_header.dart';
+import '../widgets/home_widgets/catalog_list.dart';
 
 class Home_page extends StatefulWidget {
   const Home_page({Key? key}) : super(key: key);
@@ -37,41 +40,22 @@ class _Home_pageState extends State<Home_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Center(child: Text("Catalouge App"))),
-      body: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
-          ? GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, mainAxisSpacing: 16, crossAxisSpacing: 16),
-              itemBuilder: (context, index) {
-                final itm = CatalogModel.items[index];
-                return Card(
-                  clipBehavior: Clip.antiAlias,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(11)),
-                  child: GridTile(
-                    header: Container(
-                        padding: EdgeInsets.all(16),
-                        decoration: BoxDecoration(color: Colors.deepPurple),
-                        child: Text(
-                          itm.name,
-                          style: TextStyle(color: Colors.white, fontSize: 15),
-                        )),
-                    child: Image.network(itm.image),
-                    footer: Container(
-                        padding: EdgeInsets.all(16),
-                        decoration: BoxDecoration(color: Colors.deepPurple),
-                        child: Text(itm.price.toString(),
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 15))),
-                  ),
-                );
-              },
-              itemCount: CatalogModel.items.length,
-            )
-          : Center(
-              child: CircularProgressIndicator(),
-            ),
-      drawer: MyDrawer(),
+      body: SafeArea(
+          child: Container(
+        padding: Vx.m32,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CatalogHeader(),
+            if (CatalogModel.items.isNotEmpty && CatalogModel.items != null)
+              CatalogList().expand()
+            else
+              Container(
+                child: Center(child: CircularProgressIndicator()).expand(),
+              )
+          ],
+        ),
+      )),
     );
   }
 }

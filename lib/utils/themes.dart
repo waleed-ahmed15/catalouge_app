@@ -17,4 +17,6 @@ class MyThemes {
   static ThemeData DarkTheme() {
     return ThemeData(brightness: Brightness.dark, primaryColor: Colors.blue);
   }
+
+  static Color creamColor = Color(0xfff5f5f5);
 }
