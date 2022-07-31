@@ -33,12 +33,15 @@ class CatalogItem extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => HomePageDetail(catalog: catalog))),
-            child: Container(
-                    color: Colors.white70,
-                    child: Image.network(catalog.image).p16())
-                .cornerRadius(10)
-                .w32(context)
-                .p16(),
+            child: Hero(
+              tag: catalog.id.toString(),
+              child: Container(
+                      color: Colors.white70,
+                      child: Image.network(catalog.image).p16())
+                  .cornerRadius(10)
+                  .w32(context)
+                  .p16(),
+            ),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
