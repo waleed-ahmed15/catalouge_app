@@ -47,7 +47,7 @@ class _Home_pageState extends State<Home_page> {
                 return Card(
                   clipBehavior: Clip.antiAlias,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(11)),
                   child: GridTile(
                     header: Container(
                         padding: EdgeInsets.all(16),
