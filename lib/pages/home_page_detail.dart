@@ -10,7 +10,9 @@ class HomePageDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.canvasColor,
       appBar: AppBar(
+        iconTheme: context.theme.iconTheme,
         backgroundColor: Colors.transparent,
       ),
       body: SafeArea(
@@ -22,9 +24,13 @@ class HomePageDetail extends StatelessWidget {
               Hero(
                   tag: catalog.id.toString(),
                   child: Image.network(catalog.image)
+                      .box
+                      .rounded
+                      .color(context.canvasColor)
+                      .make()
                       .h20(context)
                       .centered()
-                      .p16()),
+                      .p20()),
               Expanded(
                 child: VxArc(
                   height: 10,
@@ -33,20 +39,24 @@ class HomePageDetail extends StatelessWidget {
                   child: Container(
                     width: context.screenWidth,
                     padding: Vx.m32,
-                    color: MyThemes.creamColor,
+                    color: context.cardColor,
                     child: Column(children: [
-                      catalog.name.text.bold.xl5.make(),
+                      catalog.name.text.bold.xl5
+                          .color(context.accentColor)
+                          .make(),
                       SizedBox(
                         height: 20,
                       ),
                       catalog.desc.text.xl
                           .textStyle(context.captionStyle)
+                          .color(context.accentColor)
                           .make(),
                       10.heightBox,
                       "Voluptua labore et ut diam et dolores lorem eirmod sanctus, voluptua sed tempor lorem at dolor ut sit eos, eos et magna eos duo, ipsum duo diam accusam aliquyam lorem amet gubergren at takimata, sea et voluptua sit duo eos dolor amet consetetur, sea sit labore dolor ipsum sed. Sit."
                           .text
                           .align(TextAlign.justify)
                           .textStyle(context.captionStyle)
+                          .color(context.accentColor)
                           .make()
                           .p16()
                     ]),
@@ -69,13 +79,13 @@ class HomePageDetail extends StatelessWidget {
           ElevatedButton(
             style: ButtonStyle(
                 backgroundColor:
-                    MaterialStateProperty.all(Colors.blueGrey[900]),
+                    MaterialStateProperty.all(MyThemes.darkCreamColor),
                 shape: MaterialStateProperty.all(StadiumBorder())),
             onPressed: () {},
             child: "add to cart".text.make(),
-          ).p8().wh(120, 50),
+          ).p4().wh(120, 50),
         ],
-      ).px16(),
+      ).px16().backgroundColor(context.cardColor),
     );
   }
 }

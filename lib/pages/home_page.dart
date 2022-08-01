@@ -42,7 +42,9 @@ class _Home_pageState extends State<Home_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.canvasColor,
       floatingActionButton: FloatingActionButton(
+          backgroundColor: context.theme.buttonColor,
           onPressed: () {
             Navigator.pushNamed(context, MyRoutes.cartRoute);
           },

@@ -1,6 +1,7 @@
 import 'package:catalouge_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -28,6 +29,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: context.canvasColor,
       child: SingleChildScrollView(
         child: Form(
           key: _formKey,
@@ -39,13 +41,14 @@ class _LoginPageState extends State<LoginPage> {
                   image: AssetImage('assets/files/login_image.jpg'),
                   fit: BoxFit.cover,
                 ),
-              )),
+              )).h40(context),
               SizedBox(
                 height: 20,
               ),
               Text(
-                "welcome",
+                "W E L C O M E",
                 style: TextStyle(
+                  color: context.accentColor,
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
@@ -93,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 40,
                     ),
                     Material(
-                      color: Colors.purple,
+                      color: context.theme.buttonColor,
                       borderRadius: BorderRadius.circular(8),
                       child: InkWell(
                         onTap: () => moveToHome(context),

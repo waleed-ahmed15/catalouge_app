@@ -1,3 +1,4 @@
+import 'package:catalouge_app/utils/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -34,21 +35,25 @@ class CatalogItem extends StatelessWidget {
                 MaterialPageRoute(
                     builder: (context) => HomePageDetail(catalog: catalog))),
             child: Hero(
-              tag: catalog.id.toString(),
-              child: Container(
-                      color: Colors.white70,
-                      child: Image.network(catalog.image).p16())
-                  .cornerRadius(10)
-                  .w32(context)
-                  .p16(),
-            ),
+                tag: catalog.id.toString(),
+                child: Image.network(catalog.image)
+                    .box
+                    .rounded
+                    .color(context.cardColor)
+                    .p16
+                    .make()
+                    .p16()
+                    .w40(context)),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              catalog.name.text.bold.xl.make(),
-              catalog.desc.text.textStyle(context.captionStyle).make(),
+              catalog.name.text.bold.xl.color(context.accentColor).make(),
+              catalog.desc.text
+                  .textStyle(context.captionStyle)
+                  .color(context.accentColor)
+                  .make(),
               ButtonBar(
                 alignment: MainAxisAlignment.spaceBetween,
                 buttonPadding: EdgeInsets.zero,
@@ -56,6 +61,8 @@ class CatalogItem extends StatelessWidget {
                   "\$${catalog.price.toString()}".text.make(),
                   ElevatedButton(
                     style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(MyThemes.darkCreamColor),
                         shape: MaterialStateProperty.all(StadiumBorder())),
                     onPressed: () {},
                     child: "add to cart".text.make(),
@@ -66,7 +73,7 @@ class CatalogItem extends StatelessWidget {
           ).expand(),
         ],
       ),
-      color: Color.fromARGB(255, 246, 238, 213),
+      color: context.cardColor,
     ).cornerRadius(15);
   }
 }
