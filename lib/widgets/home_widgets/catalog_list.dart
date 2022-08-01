@@ -1,11 +1,10 @@
-import 'package:catalouge_app/models/cart.dart';
-import 'package:catalouge_app/utils/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../models/calatoge.dart';
 import '../../pages/home_page_detail.dart';
 import '../home_widgets/add_to_cart.dart';
+
 class CatalogList extends StatelessWidget {
   const CatalogList({Key? key}) : super(key: key);
 
@@ -28,6 +27,7 @@ class CatalogItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: context.cardColor,
       child: Row(
         children: [
           InkWell(
@@ -69,8 +69,6 @@ class CatalogItem extends StatelessWidget {
           ).expand(),
         ],
       ),
-      color: context.cardColor,
     ).cornerRadius(15);
   }
 }
-

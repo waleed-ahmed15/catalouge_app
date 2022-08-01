@@ -1,3 +1,4 @@
+import 'package:catalouge_app/core/store.dart';
 import 'package:catalouge_app/models/cart.dart';
 import 'package:catalouge_app/utils/themes.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,7 @@ class CartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CartModel cart = CartModel();
+    CartModel cart = (VxState.store as MyStore).cart;
     return ButtonBar(
       alignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -53,9 +54,10 @@ class CartTotal extends StatelessWidget {
 }
 
 class _CartList extends StatelessWidget {
-  CartModel cart = CartModel();
   @override
   Widget build(BuildContext context) {
+    CartModel cart = (VxState.store as MyStore).cart;
+
     return cart.items.isEmpty
         ? "no items added".text.xl4.make().centered()
         : ListView.builder(
