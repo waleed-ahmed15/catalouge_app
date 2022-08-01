@@ -13,11 +13,11 @@ class MyThemes {
         cardColor: Colors.white,
         appBarTheme: const AppBarTheme(
             titleTextStyle: TextStyle(
-                color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+                color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold),
             elevation: 0,
             backgroundColor: Colors.white,
             iconTheme: IconThemeData(color: Colors.black)),
-        primarySwatch: Colors.red,  
+        primarySwatch: Colors.red,
         fontFamily: GoogleFonts.poppins().fontFamily);
   }
 
@@ -30,11 +30,9 @@ class MyThemes {
         textTheme: TextTheme(),
         cardColor: Colors.black,
         appBarTheme: const AppBarTheme(
-            titleTextStyle: TextStyle(
-                color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold),
             elevation: 0,
             backgroundColor: Colors.white,
-            iconTheme: IconThemeData(color: Colors.black)),
+            iconTheme: IconThemeData(color: Colors.white)),
         primarySwatch: Colors.red,
         fontFamily: GoogleFonts.poppins().fontFamily);
   }

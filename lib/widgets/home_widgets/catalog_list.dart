@@ -13,7 +13,7 @@ class CatalogList extends StatelessWidget {
     return ListView.builder(
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
-        final itm = CatalogModel.items[index];
+        final itm = CatalogModel.getByPostion(index);
         return CatalogItem(catalog: itm).py16();
       },
     );
