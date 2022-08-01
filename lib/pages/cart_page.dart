@@ -35,8 +35,14 @@ class CartTotal extends StatelessWidget {
         ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(MyThemes.darkCreamColor)),
-                onPressed: () {},
+                        MaterialStateProperty.all(context.theme.buttonColor)),
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text(
+                    "Buying not supported yet!",
+                    style: TextStyle(fontSize: 20),
+                  )));
+                },
                 child: "B U Y".text.bold.color(MyThemes.creamColor).make())
             .w40(context)
       ],
