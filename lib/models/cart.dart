@@ -3,16 +3,20 @@ import 'package:catalouge_app/models/calatoge.dart';
 class CartModel {
   late CatalogModel _catalog;
 
+  static final cartModel = CartModel._internal();
+  CartModel._internal();
+  factory CartModel() => cartModel;
+
   //stored ids of items in cart
 
   final List<int> _itemIds = [];
 
   CatalogModel get catalog => _catalog;
+  CatalogModel catalogObj = CatalogModel();
 
   set catalog(CatalogModel newCatalog) => _catalog = newCatalog;
 
-  List<Item> get items =>
-      _itemIds.map((id) => CatalogModel.getById(id)).toList();
+  List<Item> get items => _itemIds.map((id) => catalogObj.getById(id)).toList();
 
   num get totalPrice =>
       items.fold(0, (total, element) => total + element.price);
