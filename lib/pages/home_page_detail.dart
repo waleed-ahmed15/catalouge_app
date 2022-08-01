@@ -1,5 +1,6 @@
 import 'package:catalouge_app/models/calatoge.dart';
 import 'package:catalouge_app/utils/themes.dart';
+import 'package:catalouge_app/widgets/home_widgets/add_to_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -76,14 +77,7 @@ class HomePageDetail extends StatelessWidget {
               .xl5
               .color(Colors.red[500])
               .make(),
-          ElevatedButton(
-            style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all(MyThemes.darkCreamColor),
-                shape: MaterialStateProperty.all(StadiumBorder())),
-            onPressed: () {},
-            child: "add to cart".text.make(),
-          ).p4().wh(120, 50),
+          AddToCart(catalog: catalog)
         ],
       ).px16().backgroundColor(context.cardColor),
     );

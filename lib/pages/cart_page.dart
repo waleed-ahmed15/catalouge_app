@@ -63,25 +63,32 @@ class __CartListState extends State<_CartList> {
   CartModel cart = CartModel();
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: cart.items.length,
-        itemBuilder: (context, index) => ListTile(
-              leading: Icon(
-                Icons.done,
-                color: Colors.green,
-              ),
-              title: "${cart.items[index].name}"
-                  .text
-                  .color(context.accentColor)
-                  .xl
-                  .make(),
-              trailing: IconButton(
-                icon: Icon(
-                  Icons.delete_outline,
-                  color: Colors.red,
-                ),
-                onPressed: () {},
-              ),
-            ));
+    return cart.items.isEmpty
+        ? "no items added".text.xl4.make().centered()
+        : ListView.builder(
+            itemCount: cart.items.length,
+            itemBuilder: (context, index) => ListTile(
+                  leading: Icon(
+                    Icons.done,
+                    color: Colors.green,
+                  ),
+                  title: "${cart.items[index].name}"
+                      .text
+                      .color(context.accentColor)
+                      .xl
+                      .make(),
+                  trailing: IconButton(
+                    icon: Icon(
+                      Icons.delete_outline,
+                      color: Colors.red,
+                    ),
+                    onPressed: () {
+                      cart.remove(cart.items[index]);
+                      setState(() {
+                        
+                      });
+                    },
+                  ),
+                ));
   }
 }

@@ -5,7 +5,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 import '../../models/calatoge.dart';
 import '../../pages/home_page_detail.dart';
-
+import '../home_widgets/add_to_cart.dart';
 class CatalogList extends StatelessWidget {
   const CatalogList({Key? key}) : super(key: key);
 
@@ -74,34 +74,3 @@ class CatalogItem extends StatelessWidget {
   }
 }
 
-class AddToCart extends StatefulWidget {
-  final Item catalog;
-  const AddToCart({
-    required this.catalog,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<AddToCart> createState() => _AddToCartState();
-}
-
-class _AddToCartState extends State<AddToCart> {
-  bool isAdded = false;
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(MyThemes.darkCreamColor),
-          shape: MaterialStateProperty.all(StadiumBorder())),
-      onPressed: () {
-        CatalogModel catalogObj = CatalogModel();
-        CartModel cartObj = CartModel();
-        cartObj.catalog = catalogObj;
-        isAdded = isAdded.toggle();
-        cartObj.add(widget.catalog);
-        setState(() {});
-      },
-      child: isAdded ? Icon(Icons.done) : "add to cart".text.make(),
-    );
-  }
-}
