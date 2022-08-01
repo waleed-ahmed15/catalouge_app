@@ -45,7 +45,7 @@ class HomePageDetail extends StatelessWidget {
                       catalog.name.text.bold.xl5
                           .color(context.accentColor)
                           .make(),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       catalog.desc.text.xl

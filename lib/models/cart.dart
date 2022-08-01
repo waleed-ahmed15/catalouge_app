@@ -3,10 +3,6 @@ import 'package:catalouge_app/models/calatoge.dart';
 class CartModel {
   late CatalogModel _catalog;
 
-  static final cartModel = CartModel._internal();
-  CartModel._internal();
-  factory CartModel() => cartModel;
-
   //stored ids of items in cart
 
   final List<int> _itemIds = [];
