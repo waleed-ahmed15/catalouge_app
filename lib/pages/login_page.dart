@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                           hintText: 'email',
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(1)),
-                          enabledBorder: OutlineInputBorder(
+                          enabledBorder:   OutlineInputBorder(
                               borderSide:
                                   BorderSide(color: Colors.black, width: 1))),
                     ),
